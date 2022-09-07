@@ -1,0 +1,64 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="T4Template\DBTModelToTClassModel.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DBTModelToTClassModel.tt</DependentUpon>
+    </None>
+    <None Include="T4Template\Table.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Table.tt</DependentUpon>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="T4Template\Column.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Column.tt</DependentUpon>
+    </Compile>
+    <Compile Update="T4Template\DBTModelToTClassModel.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DBTModelToTClassModel.tt</DependentUpon>
+    </Compile>
+    <Compile Update="T4Template\Table.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Table.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="T4Template\Column.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Column.cs</LastGenOutput>
+    </None>
+    <None Update="T4Template\DBTModelToTClassModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DBTModelToTClassModel.cs</LastGenOutput>
+    </None>
+    <None Update="T4Template\Table.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Table.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+</Project>
